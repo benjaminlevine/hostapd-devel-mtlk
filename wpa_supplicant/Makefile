@@ -1,3 +1,33 @@
+CC="/home/benjamin/router/openwrt/staging_dir/toolchain-mips_34kc+dsp_gcc-5.3.0_musl-1.1.16/bin/mips-openwrt-linux-gcc"
+CXX="/home/benjamin/router/openwrt/staging_dir/toolchain-mips_34kc+dsp_gcc-5.3.0_musl-1.1.16/bin/mips-openwrt-linux-c++"
+CFLAGS="-O2 -fno-common -fno-builtin -mtune=34kc $CFLAGS"
+CFLAGS="-isystem=/home/benjamin/router/openwrt/build_dir/target-mips_34kc+dsp_musl-1.1.16/linux-lantiq_xrx200/linux-4.4.14/include -D_GNU_SOURCE $CFLAGS"
+LDFLAGS="-L/home/benjamin/router/openwrt/staging_dir/target-mips_34kc+dsp_musl-1.1.16/usr/"
+CXXFLAGS="$CFLAGS $CXXFLAGS"
+
+
+#Include files & directories
+CPPFLAGS="-I /home/benjamin/router/openwrt/build_dir/target-mips_34kc+dsp_musl-1.1.16/libnl-tiny-0.1/include $CPPFLAGS"	#Add path for libnl-tiny
+
+#Linker flags for C++ applications linkage
+cxx_ldadd=-lgcc_s
+
+#Additional kernel flags for this platform
+#kernel_cflags=-mlong-calls
+
+#Target kernel architecture
+kernel_arch=mips
+
+#Prefix for kernel compiler/binutils
+DEFAULT_KERNEL_CROSS_COMPILE=/home/benjamin/router/openwrt/staging_dir/toolchain-mips_34kc+dsp_gcc-5.3.0_musl-1.1.16/bin/mips-openwrt-linux-
+#Kernel directory location
+#DEFAULT_KERNEL_DIR=$BSP_KERNEL_PATH
+#Prefix for kernel compiler/binutils
+#DEFAULT_KERNEL_CROSS_COMPILE=$CROSS
+
+
+
+
 ifndef CC
 CC=gcc
 endif

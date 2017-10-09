@@ -3,3 +3,6 @@
 2. from terminal run (modify for own location): export STAGING_DIR=/home/benjamin/router/openwrt/staging_dir/target-mips_34kc+dsp_musl-1.1.16
 3. from hostapd directory run: make
 4. copy compiled hostapd to router hardware and rename as mtlk-ap
+
+5. Modify wpa_supplicant/Makefile - top 26 lines - to match your cross compilation settings and location of toolchain/target builds
+6. from wpa_supplicant directory run: make
